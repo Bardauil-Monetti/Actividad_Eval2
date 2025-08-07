@@ -28,8 +28,8 @@ void mPaP_Init(int IN0, int IN1, int IN2, int IN3){
     IN3 = 6;
     int pins[4] = {IN0, IN1, IN2, IN3};
     for(int i = 0; i < 4; i++){
-        GPIOA -> CRL &= ~(0XF << (pins[i] * 4));//configuro los pines en el PA como entradas flotantes
-        GPIOA -> CRL |= (0b0100 << (pins[i] *4));
+        GPIOA -> CRL &= ~(0XF << (pins[i] * 4));//configuro los pines en el PA como salidas push-pull
+        GPIOA -> CRL |= (0b0010 << (pins[i] *4));
     }
     RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
     for(int i = 0; i < 4; i++){
